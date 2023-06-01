@@ -5,6 +5,7 @@ import com.khai.inventory.dto.SizeRequest;
 import com.khai.inventory.dto.SizeResponse;
 import com.khai.inventory.service.SizeService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +15,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/sizes")
 @RequiredArgsConstructor
+@Slf4j
 public class SizeController {
 
     private final SizeService sizeService;
     @GetMapping
     public ResponseEntity<List<SizeResponse>> findAllSizes(){
         List<SizeResponse> sizes = sizeService.findAllSizes();
+        log.info("In size controller");
         return new ResponseEntity<>(sizes, HttpStatus.OK);
     }
 

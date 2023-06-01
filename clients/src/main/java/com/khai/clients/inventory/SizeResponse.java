@@ -1,4 +1,4 @@
-package com.khai.product.dto;
+package com.khai.clients.inventory;
 
 import lombok.Data;
 

@@ -10,6 +10,7 @@
         <module name="config-server" />
         <module name="inventory-service" />
         <module name="discovery-server" />
+        <module name="clients" />
         <module name="api-gateway" />
         <module name="product-service" />
         <module name="order-service" />
