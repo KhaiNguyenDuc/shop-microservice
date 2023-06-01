@@ -20,5 +20,6 @@ public class Mattress {
     private Double price;
     private String description;
     private Long soldQuantity;
+    private Long inventory_id;
 
 }

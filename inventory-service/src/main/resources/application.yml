@@ -8,7 +8,17 @@ spring:
     url: jdbc:mysql://localhost:3306/shopservices_inventory?createDatabaseIfNotExist=true
     username: root
     password: k989898k
+
   jpa:
     hibernate:
-      ddl-auto: update
-
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true

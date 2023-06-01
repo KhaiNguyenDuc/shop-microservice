@@ -24,6 +24,9 @@ public class Inventory {
     @JoinColumn(name="size_id",referencedColumnName = "id")
     private Size size;
 
+    @Column(name = "mattress_id")
+    private String mattress_id;
+
     public Inventory(Integer quantity) {
         super();
         this.quantity = quantity;

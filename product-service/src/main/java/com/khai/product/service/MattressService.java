@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface MattressService {
     List<MattressResponse> findAllMattresses();
+
+    String findBySizeId();
 }
