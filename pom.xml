@@ -17,12 +17,12 @@
         <module>order-service</module>
         <module>inventory-service</module>
         <module>config-server</module>
-        <module>api-gateway</module>
         <module>discovery-server</module>
         <module>user-service</module>
         <module>clients</module>
         <module>clients</module>
         <module>notification-service</module>
+        <module>apigw</module>
     </modules>
 
     <properties>
