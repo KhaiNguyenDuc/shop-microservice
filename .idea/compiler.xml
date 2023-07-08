@@ -8,10 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
+        <module name="apigw" />
         <module name="inventory-service" />
         <module name="discovery-server" />
         <module name="clients" />
-        <module name="api-gateway" />
         <module name="product-service" />
         <module name="order-service" />
         <module name="user-service" />
@@ -20,6 +20,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="amqp" target="17" />
+      <module name="api-gateway" target="17" />
       <module name="common" target="17" />
     </bytecodeTargetLevel>
   </component>
