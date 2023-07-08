@@ -15,7 +15,12 @@
         <module name="product-service" />
         <module name="order-service" />
         <module name="user-service" />
+        <module name="notification-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="amqp" target="17" />
+      <module name="common" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
