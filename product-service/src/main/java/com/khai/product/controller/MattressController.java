@@ -1,6 +1,8 @@
 package com.khai.product.controller;
 
 import com.khai.clients.inventory.InventoryClient;
+import com.khai.clients.inventory.NotificationClient;
+import com.khai.clients.inventory.NotificationDto;
 import com.khai.clients.inventory.SizeResponse;
 import com.khai.product.dto.MattressResponse;
 import com.khai.product.service.MattressService;
@@ -16,7 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/mattresses")
+@RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
 @Slf4j
 public class MattressController {
@@ -24,6 +26,7 @@ public class MattressController {
     private final MattressService mattressService;
     private final RestTemplate restTemplate;
     private final InventoryClient inventoryClient;
+    private final NotificationClient notificationClient;
 
     @GetMapping
     public ResponseEntity<List<MattressResponse>> findAllMattresses(){
@@ -34,7 +37,13 @@ public class MattressController {
     @GetMapping("sizes")
     public ResponseEntity<List<SizeResponse>> findAllSizes(){
 
+        log.info("Mattress controller: Start find all size");
         List<SizeResponse> sizes = inventoryClient.findAllSizes();
+        NotificationDto notificationDto = new NotificationDto();
+        notificationDto.setName("Find all sizes");
+        notificationDto.setMessage("Find all sizes successfully");
+        String message = notificationClient.send(notificationDto);
+        log.info("Mattress controller: End find all size");
         return new ResponseEntity<>(sizes,HttpStatus.OK);
     }
 

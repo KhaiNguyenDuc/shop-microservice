@@ -1,7 +1,7 @@
 package com.khai.order.model;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 import net.minidev.json.annotate.JsonIgnore;
 

@@ -1,0 +1,26 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: notification-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shopservices_notification?createDatabaseIfNotExist=true
+    username: root
+    password: k989898k
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: trues
+  zipkin:
+    base-url:http://localhost:9411
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+      fetch-registry: true
+      register-with-eureka: true
+
