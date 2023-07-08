@@ -37,13 +37,13 @@ public class MattressController {
     @GetMapping("sizes")
     public ResponseEntity<List<SizeResponse>> findAllSizes(){
 
+        log.info("Mattress controller: Start find all size");
         List<SizeResponse> sizes = inventoryClient.findAllSizes();
-
         NotificationDto notificationDto = new NotificationDto();
         notificationDto.setName("Find all sizes");
         notificationDto.setMessage("Find all sizes successfully");
         String message = notificationClient.send(notificationDto);
-        log.info(message);
+        log.info("Mattress controller: End find all size");
         return new ResponseEntity<>(sizes,HttpStatus.OK);
     }
 
