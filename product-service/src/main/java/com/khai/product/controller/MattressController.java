@@ -41,7 +41,7 @@ public class MattressController {
         NotificationDto notificationDto = new NotificationDto();
         notificationDto.setName("Find all sizes");
         notificationDto.setMessage("Find all sizes successfully");
-        rabbitMQProducer.publish("This is sample message",
+        rabbitMQProducer.publish(notificationDto,
                 "internal.exchange",
                 "internal.notification.routing-key");
         log.info("Mattress controller: End find all size");
