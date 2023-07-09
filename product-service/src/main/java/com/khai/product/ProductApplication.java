@@ -10,7 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+        "com.khai.product",
+        "com.khai.amqp"
+})
 @Configuration
 @EnableFeignClients(
         basePackages = "com.khai.clients"

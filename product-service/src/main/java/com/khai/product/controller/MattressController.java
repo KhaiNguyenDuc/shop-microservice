@@ -1,7 +1,7 @@
 package com.khai.product.controller;
 
+import com.khai.amqp.RabbitMQProducer;
 import com.khai.clients.inventory.InventoryClient;
-import com.khai.clients.inventory.NotificationClient;
 import com.khai.clients.inventory.NotificationDto;
 import com.khai.clients.inventory.SizeResponse;
 import com.khai.product.dto.MattressResponse;
@@ -26,8 +26,7 @@ public class MattressController {
     private final MattressService mattressService;
     private final RestTemplate restTemplate;
     private final InventoryClient inventoryClient;
-    private final NotificationClient notificationClient;
-
+    private final RabbitMQProducer rabbitMQProducer;
     @GetMapping
     public ResponseEntity<List<MattressResponse>> findAllMattresses(){
         List<MattressResponse> mattresses = mattressService.findAllMattresses();
@@ -42,7 +41,9 @@ public class MattressController {
         NotificationDto notificationDto = new NotificationDto();
         notificationDto.setName("Find all sizes");
         notificationDto.setMessage("Find all sizes successfully");
-        String message = notificationClient.send(notificationDto);
+        rabbitMQProducer.publish("This is sample message",
+                "internal.exchange",
+                "internal.notification.routing-key");
         log.info("Mattress controller: End find all size");
         return new ResponseEntity<>(sizes,HttpStatus.OK);
     }
